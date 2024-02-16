@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
 <h1>Добро пожаловать на страницу вашего аккаунта!!!</h1>
 <p>Имя пользователя: {{user.username}}</p>
 <p>Дата регистрации: {{user.date_joined}}</p>
