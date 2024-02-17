@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 {% block content %}
-<form method='post'>
-  
-</form>
-{% endblock content %}
+<div class='card col-4'>
+  <div class='card-header'>
+    {% if '/product/' in request.path %}
+      Добавить товар
+    {% elif '/category/' in request.path %}
+      Добавить категорию
+    {% elif '/provider/' in request.path %}
+      Добавить поставщика
+    {% endif %}
+  </div>
+  <div class='card-body'>
+    <form method='post'>
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% bootstrap_button button_type="submit" content="Сохранить" %}
+    </form>
+    {% endblock content %}
+
+  <div>
 

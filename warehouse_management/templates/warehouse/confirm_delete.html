@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        Удалить товар
+      </h5>
+      <p class="card-text">Прежде чем удалить, провертье данные</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Элемент</li>
+      <li class="list-group-item">Второй элемент</li>
+      <li class="list-group-item">Третий элемент</li>
+    </ul>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Удалить</button>
+            <a ></a>
+        </form>
+      <a href="{% url "warehouse:list" %}" class="card-link">Отмена</a>
+    </div>
+  </div>
+{% endblock content %}

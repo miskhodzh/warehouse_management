@@ -11,6 +11,9 @@ class Category(models.Model):
         verbose_name='Описание'
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Provider(models.Model):
     title = models.CharField(
@@ -29,6 +32,9 @@ class Provider(models.Model):
         max_length=12,
         verbose_name='Телефон'
     )
+
+    def __str__(self):
+        return self.title
 
 
 class Product(models.Model):
@@ -53,3 +59,5 @@ class Product(models.Model):
         null=True,
     )
 
+    def __str__(self):  
+        return self.title
