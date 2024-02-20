@@ -11,6 +11,9 @@ class Category(models.Model):
         verbose_name='Описание'
     )
 
+    class Mete:
+        verbose_name = 'Категория'
+
     def __str__(self):
         return self.title
 
@@ -58,6 +61,17 @@ class Product(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
+
+    def get_fields(self):
+        return [
+            self.id,
+            self.title,
+            self.category,
+            self.description,
+            self.quantity,
+            self.provider
+        ]
+
 
     def __str__(self):  
         return self.title

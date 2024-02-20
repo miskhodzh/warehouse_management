@@ -7,7 +7,7 @@ from .forms import ReceiptInvoiceForm
 from .models import ReceiptInvoice
 
 class ReceiptInvoiceAdd(FormView):
-    template_name = 'warehouse/add.html'
+    template_name = 'add.html'
     form_class = ReceiptInvoiceForm
     success_url = reverse_lazy('movements:list')
 

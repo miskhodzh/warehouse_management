@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        {% if '/product/' in request.path %}
+          Удалить товар
+        {% elif '/category/' in request.path %}
+          Удалить категорию
+        {% elif '/proveder/' in request.path %}
+          Удалить поставщика
+        {% endif %}
+      </h5>
+      <p class="card-text">Прежде чем удалить, провертье данные</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: {{object.id}}</li>
+      <li class="list-group-item">Название: {{object.title}}</li>
+      <li class="list-group-item">Описание: {{object.description}}</li>
+      <li class="list-group-item">Количество: {{object.quantity}}</li>
+      <li class="list-group-item">Поставщик: {{object.provider}}</li>
+    </ul>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Удалить</button>
+        </form>
+      <a href="{{success_url}}" class="card-link">Отмена</a>
+    </div>
+  </div>
+{% endblock content %}
