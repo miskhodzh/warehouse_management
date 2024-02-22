@@ -26,7 +26,9 @@
             Склад
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item {% if '/warehouse/list/' in request.path %}active{% endif %}" href="{% url 'warehouse:list' %}">Таблица склада</a></li>
+            <li><a class="dropdown-item {% if '/warehouse/list/' in request.path %}active{% endif %}" href="{% url 'warehouse:product_list' %}">Таблица склада</a></li>
+            <li><a class="dropdown-item {% if '/warehouse/list/' in request.path %}active{% endif %}" href="{% url 'warehouse:category_list' %}">Таблица категорий</a></li>
+            <li><a class="dropdown-item {% if '/warehouse/list/' in request.path %}active{% endif %}" href="{% url 'warehouse:provider_list' %}">Таблица поставщиков</a></li>
             <li><a class="dropdown-item {% if '/warehouse/product/add/' in request.path %}active{% endif %}" href="{% url 'warehouse:add_product' %}">Добавить товар</a></li>
             <li><a class="dropdown-item {% if '/warehouse/category/add' in request.path %}active{% endif %}" href="{% url 'warehouse:add_category' %}">Добавить категорию</a></li>
             <li><a class="dropdown-item {% if '/warehouse/provider/add' in request.path %}active{% endif %}" href="{% url 'warehouse:add_provider' %}">Добавить поставщика</a></li>

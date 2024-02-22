@@ -14,6 +14,17 @@ class Category(models.Model):
     class Mete:
         verbose_name = 'Категория'
 
+    @classmethod
+    def get_verbose_names(cls):
+        return [field.verbose_name for field in cls._meta.fields]
+    
+    def get_fields(self):
+        return [
+            self.id,
+            self.title,
+            self.description
+        ]
+
     def __str__(self):
         return self.title
 
@@ -36,6 +47,19 @@ class Provider(models.Model):
         verbose_name='Телефон'
     )
 
+    def get_fields(self):
+        return [
+            self.id,
+            self.title,
+            self.contact_person,
+            self.address,
+            self.phone,
+        ]
+
+    @classmethod
+    def get_verbose_names(cls):
+        return [field.verbose_name for field in cls._meta.fields]
+
     def __str__(self):
         return self.title
 
@@ -49,6 +73,7 @@ class Product(models.Model):
         'Category',
         on_delete=models.SET_NULL,
         null=True,
+        verbose_name='Категория'
     )
     description = models.TextField(
         verbose_name="Описание"
@@ -60,6 +85,7 @@ class Product(models.Model):
         'Provider',
         on_delete=models.SET_NULL,
         null=True,
+        verbose_name='Поставщик'
     )
 
     def get_fields(self):
@@ -71,6 +97,10 @@ class Product(models.Model):
             self.quantity,
             self.provider
         ]
+    
+    @classmethod
+    def get_verbose_names(cls):
+        return [field.verbose_name for field in cls._meta.fields]
 
 
     def __str__(self):  
